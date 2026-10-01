@@ -1,18 +1,21 @@
 #include<stdio.h>
-void mostrar_matriz(int x, char matriz[60][60])
+#include "model.h"
+#include "view.h"
+void mostrar_matriz(int dimensao, char matriz[linhas][colunas])
 {
-
-	for(int i=0;i<x;i++)
-		printf(" %3d ",i);
+	printf("   ");
+	for(int j=0;j<dimensao;j++)
+		printf("%3d ",j);
 	printf("\n");
-	for(int i=0; i<x;i++)
+	for(int i=0; i<dimensao;i++)
 	{
 		printf("%2d ",i);
-		for(int j=0;j<x;j++)
+		for(int j=0;j<dimensao;j++)
 			printf("  %c ", matriz[i][j]);
 		printf("\n");
-	}	
+	}
 }
+
 /*void mostrar_mortas(char matriz[60][60], int dimensao)
 {
 	for(int i=0;i<dimensao;i++)
@@ -44,33 +47,4 @@ void mostrar_matriz(int x, char matriz[60][60])
 	
 }
 */
-void escolher_troca(int dimensao, char matriz[60][60])
-{
-	int troca_linha;int troca_coluna;
-	do
-	{
-		mostrar_matriz(dimensao,matriz);
-		printf("escolha as cordenadas(-1 para sair): ");
-		if(troca_linha!=-1)
-		{
-		scanf("%d,%d",&troca_linha,&troca_coluna);
-		if(matriz[troca_linha][troca_coluna] == 'O')
-			matriz[troca_linha][troca_coluna] = '.';
-		else
-			matriz[troca_linha][troca_coluna] = 'O';
-		}
-	}while(troca_linha!=-1);
-}
-main()
-{
-	int dimensao;
-	printf("escolha a dimensao da matriz[10 a 60]: ");
-	scanf("%d",&dimensao);
-	char matriz[60][60];
-	for(int i=0; i<dimensao;i++)
-		for(int j=0;j<dimensao;j++)
-			matriz[i][j]='.';
-	escolher_troca(dimensao,matriz);
-	mostrar_mortas(matriz,dimensao);
-	
-}
+

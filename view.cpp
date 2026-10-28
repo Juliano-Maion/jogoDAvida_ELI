@@ -157,12 +157,17 @@ int ler_dimensao(void)
 	                   DIM_MINIMA, DIM_MAXIMA);
 }
 
-/* Menu enxuto: o mapa ja foi mostrado automaticamente antes dele */
+/* Menu: uma opcao por linha (o mapa ja foi mostrado antes dele) */
 int ler_opcao_menu(int mostrar_mortas)
 {
-	printf("\n1-Inserir/excluir celula  2-Vizinhas-mortas '+': %s  3-Limpar mapa\n",
-	       mostrar_mortas ? "SIM" : "NAO");
-	printf("4-Simular  5-Salvar  6-Carregar  7-Mudar tamanho  0-Sair\n");
+	printf("\n1 - Inserir/excluir celula\n");
+	printf("2 - Vizinhas-mortas '+': %s\n", mostrar_mortas ? "SIM" : "NAO");
+	printf("3 - Limpar mapa\n");
+	printf("4 - Simular\n");
+	printf("5 - Salvar geracao\n");
+	printf("6 - Carregar geracao\n");
+	printf("7 - Mudar tamanho do mundo\n");
+	printf("0 - Sair\n");
 	return ler_inteiro("opcao: ", 0, 7);
 }
 
@@ -174,9 +179,10 @@ int ler_coordenadas(int *l, int *c)
 
 	for (;;)
 	{
-		printf("coordenadas [linha,coluna] (-1 para voltar): ");
+		printf("coordenadas [linha coluna] ex: 10 9 (-1 para voltar): ");
 		ler_linha(buf, sizeof(buf));
-		n = sscanf(buf, "%d,%d", l, c);
+		/* separados por ESPACO (virgula tambem e tolerada) */
+		n = sscanf(buf, "%d%*[ ,]%d", l, c);
 
 		if (n >= 1 && *l == -1)
 			return 0;

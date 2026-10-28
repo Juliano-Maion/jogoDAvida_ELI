@@ -1,7 +1,20 @@
-#ifndef CONTOLLER_H
-#define CONTOLLER_H
+//Jogo da vida - Projeto Jogo da vida 2026
+//22/10/2026
+//Juliano Vion Junior, Lorenzo Moraes Cunha, Murilo Lopes Fortes Bustamante, Rafael Mota Andrade Santos
 
-void escolher_troca(int dimensao,char matriz[linhas][colunas]);
-int escolher_dimensao();
+/*
+ * controller.h  -  CONTROLLER (MVC)
+ *
+ * Decide o que fazer: pede dados ao View, altera o Model e manda o View
+ * mostrar o resultado. NAO interage com o operador.
+ */
+#ifndef CONTROLLER_H
+#define CONTROLLER_H
+
+/* Inicia o jogo: pede o tamanho (REQ01) e abre o menu principal */
+void iniciar_jogo(void);
+
+/* Loop do menu: termina quando o usuario escolhe sair */
+void menu_principal(void);
 
 #endif

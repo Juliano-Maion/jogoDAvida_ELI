@@ -27,7 +27,7 @@ void mostrar_geracao_carregada(int numero);
 /* ---------- entrada ---------- */
 int ler_dimensao(void);                 /* REQ01: tamanho 10 a 60 */
 int ler_opcao_menu(int mostrar_mortas); /* mostra o menu e le a opcao */
-int ler_coordenadas(int *l, int *c);    /* REQ02: 1 = leu, 0 = usuario digitou -1 */
+int ler_coordenadas(int *l, int *c);    /* REQ02: "linha coluna" separados por espaco; 1 = leu, 0 = usuario digitou -1 */
 int confirmar(const char *pergunta);    /* sim/nao: 1 = sim */
 int ler_geracoes(void);                 /* REQ07 */
 int ler_velocidade(void);               /* REQ08 (0 = passo a passo) */
